@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FODMAPScanner">
         <activity
-            android:name="com.lemick.fodmapscanner.MainActivity"
+            android:name="com.lemick.fodmapscanner.view.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.FODMAPScanner.NoActionBar">
             <intent-filter>
