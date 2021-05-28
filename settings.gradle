@@ -1,0 +1,2 @@
+rootProject.name = "FODMAP Scanner"
+include ':app'
