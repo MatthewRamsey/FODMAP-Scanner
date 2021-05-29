@@ -62,8 +62,13 @@ class CodeScannerFragment : Fragment() {
                         val productResult = response.body()
                         val om = ObjectMapper();
                         Log.d("APP", om.writeValueAsString(productResult));
-                        val bundle = bundleOf("productInfo" to productResult)
-                        findNavController().navigate(R.id.action_CodeScannerFragment_to_SummaryProductFragment, bundle)
+                        if (productResult?.product != null) {
+                            findNavController().navigate(
+                                CodeScannerFragmentDirections.actionCodeScannerFragmentToSummaryProductFragment(
+                                    productResult.product!!
+                                )
+                            )
+                        }
                     }
 
                     override fun onFailure(call: Call<ProductResult>, t: Throwable) {

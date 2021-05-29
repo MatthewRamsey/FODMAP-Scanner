@@ -26,10 +26,15 @@
             app:destination="@id/FirstFragment" />
         <action
             android:id="@+id/action_CodeScannerFragment_to_SummaryProductFragment"
-            app:destination="@id/SummaryProductFragment" />
+            app:destination="@id/SummaryProductFragment">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/SummaryProductFragment"
         android:name="com.lemick.fodmapscanner.view.SummaryProductFragment"
-        android:label="SummaryProductFragment" />
+        android:label="SummaryProductFragment">
+        <argument
+            android:name="product"
+            app:argType="com.lemick.fodmapscanner.model.api.model.Product" />
+    </fragment>
 </navigation>

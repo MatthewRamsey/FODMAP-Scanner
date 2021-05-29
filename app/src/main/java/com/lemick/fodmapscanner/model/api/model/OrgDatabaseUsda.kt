@@ -1,8 +1,12 @@
 package com.lemick.fodmapscanner.model.api.model
+import android.os.Parcelable
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class OrgDatabaseUsda(
 
     @JsonProperty("available_date") var availableDate: String?,
@@ -12,4 +16,4 @@ data class OrgDatabaseUsda(
     @JsonProperty("modified_date") var modifiedDate: String?,
     @JsonProperty("publication_date") var publicationDate: String = ""
 
-)
+) : Parcelable

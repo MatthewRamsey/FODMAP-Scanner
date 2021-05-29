@@ -1,8 +1,12 @@
 package com.lemick.fodmapscanner.model.api.model
+import android.os.Parcelable
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Product (
 
   // @JsonProperty("_id") var Id : String?,
@@ -241,4 +245,4 @@ data class Product (
     @JsonProperty("vitamins_prev_tags") var vitaminsPrevTags : List<String>?,
     @JsonProperty("vitamins_tags") var vitaminsTags : List<String>?
 
-)
+) : Parcelable

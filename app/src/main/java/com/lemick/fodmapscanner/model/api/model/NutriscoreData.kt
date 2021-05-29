@@ -1,8 +1,12 @@
 package com.lemick.fodmapscanner.model.api.model
+import android.os.Parcelable
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
    
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class NutriscoreData (
 
    @JsonProperty("energy") var energy : Int?,
@@ -38,4 +42,4 @@ data class NutriscoreData (
    @JsonProperty("sugars_points") var sugarsPoints : Int?,
    @JsonProperty("sugars_value") var sugarsValue : Double?
 
-)
+) : Parcelable

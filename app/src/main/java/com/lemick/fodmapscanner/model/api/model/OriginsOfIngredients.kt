@@ -1,8 +1,12 @@
 package com.lemick.fodmapscanner.model.api.model
+import android.os.Parcelable
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class OriginsOfIngredients (
 
     @JsonProperty("aggregated_origins") var aggregatedOrigins : List<AggregatedOrigins>?,
@@ -37,4 +41,4 @@ data class OriginsOfIngredients (
     @JsonProperty("value_lu") var valueLu : Int?,
     @JsonProperty("value_nl") var valueNl : Int?
 
-)
+) : Parcelable

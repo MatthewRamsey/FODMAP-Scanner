@@ -1,8 +1,12 @@
 package com.lemick.fodmapscanner.model.api.model
+import android.os.Parcelable
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
    
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class IngredientsEn (
 
    @JsonProperty("geometry") var geometry : String?,
@@ -12,4 +16,4 @@ data class IngredientsEn (
    //@JsonProperty("sizes") var sizes : Sizes?,
    @JsonProperty("white_magic") var whiteMagic : String?
 
-)
+) : Parcelable

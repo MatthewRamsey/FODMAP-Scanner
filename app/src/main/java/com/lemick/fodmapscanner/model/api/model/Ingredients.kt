@@ -1,12 +1,23 @@
 package com.lemick.fodmapscanner.model.api.model
 
+import android.os.Parcelable
+
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-data class Ingredients (
+import kotlinx.parcelize.Parcelize
 
-    @JsonProperty("display") var display : Display?,
-    @JsonProperty("small") var small : Small?,
-    @JsonProperty("thumb") var thumb : Thumb?
+@Parcelize
+data class Ingredients(
 
-)
+    @JsonProperty("id") var id: String?,
+    @JsonProperty("rank") var rank: Long?,
+    @JsonProperty("text") var text: String?,
+    @JsonProperty("vegan") var vegan: String?,
+    @JsonProperty("vegetarian") var vegetarian: String?,
+    @JsonProperty("has_sub_ingredients") var hasSubIngredients: String?,
+    @JsonProperty("percent_estimate") var percentEstimate: Double?,
+    @JsonProperty("percent_max") var percentMax: Double?,
+    @JsonProperty("percent_min") var percentMin: Double?,
+
+    ) : Parcelable

@@ -1,8 +1,11 @@
 package com.lemick.fodmapscanner.model.api.model
-
+import android.os.Parcelable
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class EcoscoreData (
 
     @JsonProperty("adjustments") var adjustments : Adjustments?,
@@ -11,4 +14,4 @@ data class EcoscoreData (
     @JsonProperty("missing_agribalyse_match_warning") var missingAgribalyseMatchWarning : Int?,
     @JsonProperty("status") var status : String?
 
-)
+) : Parcelable
