@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Ingredients(
+data class Ingredient(
 
     @JsonProperty("id") var id: String?,
     @JsonProperty("rank") var rank: Long?,
@@ -19,5 +19,4 @@ data class Ingredients(
     @JsonProperty("percent_estimate") var percentEstimate: Double?,
     @JsonProperty("percent_max") var percentMax: Double?,
     @JsonProperty("percent_min") var percentMin: Double?,
-
-    ) : Parcelable
+) : Parcelable
