@@ -11,10 +11,11 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class IngredientParserTest {
 
+    @Mock
+    lateinit var model : IngredientParser
 
     @Test
     fun _test_() {
-        var model = mock(IngredientParser::class.java)
         Mockito.`when`(model.clearIngredientName("test")).thenReturn("test")
         assertEquals("test", model.clearIngredientName("test"))
     }
