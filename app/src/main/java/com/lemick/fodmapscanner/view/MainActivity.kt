@@ -15,7 +15,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.fasterxml.jackson.core.type.TypeReference
 import com.google.android.material.snackbar.Snackbar
 import com.lemick.fodmapscanner.R
-import com.lemick.fodmapscanner.business.ProductSummaryManager
+import com.lemick.fodmapscanner.business.FodmapDbManager
+import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.databinding.ActivityMainBinding
 import com.lemick.fodmapscanner.model.api.ApiDependencyProvider
 import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
@@ -30,8 +31,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var fodmapsRef : List<FodmapEntry>;
-    private var permissionGranted = false;
+    private val fodmapDbManager = FodmapDbManager()
+    val ingredientParser = IngredientParser(fodmapDbManager)
+
+    private var permissionCameraGranted = false;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,14 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         checkCameraPermissions()
-        loadFodmaps()
-    }
-
-    private fun loadFodmaps() {
-        val inputStream: InputStream = resources.openRawResource(R.raw.fodmap_list);
-        val fodmapListJson : String = inputStream.bufferedReader().use { it.readText() }
-        val typeRef = object : TypeReference<List<FodmapEntry>>() {}
-        fodmapsRef = ApiDependencyProvider.objectMapper.readValue(fodmapListJson, typeRef);
+        fodmapDbManager.loadFodmapDbFromStream(resources.openRawResource(R.raw.fodmap_list))
     }
 
     private fun checkCameraPermissions() {
@@ -69,10 +65,10 @@ class MainActivity : AppCompatActivity() {
             ) {
                 requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE);
             } else {
-                permissionGranted = true;
+                permissionCameraGranted = true;
             }
         } else {
-            permissionGranted = true;
+            permissionCameraGranted = true;
         }
     }
 

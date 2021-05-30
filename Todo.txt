@@ -1,0 +1,6 @@
+- Passer la DB Fodmap name sur des alias (soya, soja ?)
+- Ex Impl
+Ingredient "peanut butter", on recherche dans la DB,
+si 1 candidat contient ce terme, on le selectionne, si > 1, on selectionne avec la distance de levenshtein
+Si le terme n'est pas trouvé, on pourrait split la chaine en plusieurs mot ["peanut", "butter"] mais cela crée
+sans doute des faux positifs ? Ou alors afficher les 2 (peanut et butter) comme résultat approximatif

@@ -6,18 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.lemick.fodmapscanner.R
-import com.lemick.fodmapscanner.databinding.FragmentFirstBinding
 import com.lemick.fodmapscanner.databinding.FragmentSummaryProductBinding
-import java.util.*
+import com.lemick.fodmapscanner.model.api.model.Product
 
 class SummaryProductFragment : Fragment() {
 
+    private lateinit var product: Product
     private var _binding: FragmentSummaryProductBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -32,17 +27,16 @@ class SummaryProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1
+        initProductFromBundle()
+    }
+
+    private fun initProductFromBundle() {
         val bundle = arguments
         if (bundle == null) {
             Log.e("Confirmation", "ConfirmationFragment did not receive traveler information")
             return
         }
-
         val args = SummaryProductFragmentArgs.fromBundle(bundle)
-        val product = args.product
-       // Arrays.toString(product.ingredients?.map { ingredients ->  ingredients.})
-        Log.i("APP", "OUI")
-
+        product = args.product
     }
 }

@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Ingredient(
 
-    @JsonProperty("id") var id: String?,
+    @JsonProperty("id") var id: String,
     @JsonProperty("rank") var rank: Long?,
     @JsonProperty("text") var text: String?,
     @JsonProperty("vegan") var vegan: String?,

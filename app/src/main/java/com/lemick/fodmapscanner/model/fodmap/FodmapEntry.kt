@@ -1,18 +1,18 @@
 package com.lemick.fodmapscanner.model.fodmap
 
-class FodmapEntry {
-    lateinit var id: String
-    lateinit var name: String
-    lateinit var fodmap: String
-    lateinit var category: String
-    lateinit var details: FodmapDetails
-}
+data class FodmapEntry(
+    val id: String = "",
+    val name: String = "",
+    val fodmap: String = "",
+    val category: String = "",
+    val details: FodmapDetails = FodmapDetails()
+)
 
-class FodmapDetails {
-    var oligos: Int = 0
-    var fructose: Int = 0
-    var polyols: Int = 0
+data class FodmapDetails(
+    var oligos: Int = 0,
+    var fructose: Int = 0,
+    var polyols: Int = 0,
     var lactose: Int = 0
-};
+)
 
-    
+
