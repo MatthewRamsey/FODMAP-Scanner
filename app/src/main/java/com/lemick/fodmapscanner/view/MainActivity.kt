@@ -20,7 +20,7 @@ import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.databinding.ActivityMainBinding
 import com.lemick.fodmapscanner.model.api.ApiDependencyProvider
 import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
-import java.io.InputStream
+import org.koin.android.ext.android.inject
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,10 +31,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private val fodmapDbManager = FodmapDbManager()
-    val ingredientParser = IngredientParser(fodmapDbManager)
-
     private var permissionCameraGranted = false;
+
+    private val fodmapDbManager : FodmapDbManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

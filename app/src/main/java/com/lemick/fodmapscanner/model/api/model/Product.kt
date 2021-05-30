@@ -103,7 +103,7 @@ data class Product (
    //@JsonProperty("images") var images : Images?,
     @JsonProperty("informers") var informers : List<String>?,
     @JsonProperty("informers_tags") var informersTags : List<String>?,
-    @JsonProperty("ingredients") var ingredients : List<Ingredient>?,
+    @JsonProperty("ingredients") var ingredients : List<Ingredient>,
     @JsonProperty("ingredients_analysis_tags") var ingredientsAnalysisTags : List<String>?,
     @JsonProperty("ingredients_debug") var ingredientsDebug : List<String>?,
     @JsonProperty("ingredients_from_or_that_may_be_from_palm_oil_n") var ingredientsFromOrThatMayBeFromPalmOilN : Int?,

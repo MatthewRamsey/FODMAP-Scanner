@@ -3,12 +3,18 @@ package com.lemick.fodmapscanner.business
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.InjectMocks
+import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class IngredientParserTest {
 
-    val model = IngredientParser()
+    @Mock
+    lateinit var fodmapDbManager: FodmapDbManager;
+
+    @InjectMocks
+    lateinit var model: IngredientParser
 
     @Test
     fun _clearIngredientName_() {
