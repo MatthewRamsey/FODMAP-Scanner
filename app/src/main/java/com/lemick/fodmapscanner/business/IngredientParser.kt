@@ -1,18 +1,18 @@
 package com.lemick.fodmapscanner.business
 
 import com.lemick.fodmapscanner.model.api.model.Ingredient
-import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
+import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
 
 class IngredientParser(private val fodmapDbManager: FodmapDbManager) {
 
-    fun searchFodmapEntries(ingredients: List<Ingredient>): List<Pair<Ingredient, FodmapEntry?>> {
+    fun searchFodmapEntries(ingredients: List<Ingredient>): List<IngredientFodmapResult> {
         return ingredients.map { searchFodmapEntry(it) }
     }
 
-    fun searchFodmapEntry(ingredient: Ingredient): Pair<Ingredient, FodmapEntry?> {
+    fun searchFodmapEntry(ingredient: Ingredient): IngredientFodmapResult {
         val clearedId = clearIngredientId(ingredient.id)
         val closestEntry = fodmapDbManager.searchClosestEntry(clearedId)
-        return Pair(ingredient, closestEntry)
+        return IngredientFodmapResult(ingredient, closestEntry)
     }
 
     fun clearIngredientId(ingredientText: String): String {

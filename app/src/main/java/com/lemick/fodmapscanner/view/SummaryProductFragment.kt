@@ -5,16 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.databinding.FragmentSummaryProductBinding
 import com.lemick.fodmapscanner.model.api.model.Product
+import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
+import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
-import org.koin.java.KoinJavaComponent.inject
+
 
 class SummaryProductFragment : Fragment() {
 
     private lateinit var product: Product
+    private lateinit var ingredientFodmapResults: List<IngredientFodmapResult>
+
     private var _binding: FragmentSummaryProductBinding? = null
     private val binding get() = _binding!!
 
@@ -31,9 +38,7 @@ class SummaryProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initProductFromBundle()
-        binding.button.setOnClickListener {
-            val result = ingredientParser.searchFodmapEntries(product.ingredients)
-        }
+        populateUI()
     }
 
     private fun initProductFromBundle() {
@@ -44,5 +49,25 @@ class SummaryProductFragment : Fragment() {
         }
         val args = SummaryProductFragmentArgs.fromBundle(bundle)
         product = args.product
+    }
+
+    private fun populateUI() {
+        val productHeader: View = layoutInflater.inflate(R.layout.indredient_list_header, binding.ingredientsFodmapList, false)
+        ingredientFodmapResults = ingredientParser.searchFodmapEntries(product.ingredients)
+        val adapter = IngredientListAdapter(requireActivity(), ingredientFodmapResults)
+        binding.ingredientsFodmapList.adapter = adapter
+        binding.ingredientsFodmapList.addHeaderView(productHeader)
+
+        if (product.productName != null) {
+            val textProductName = productHeader.findViewById<TextView>(R.id.text_product_name)
+            textProductName.text = product.productName
+        }
+        if (product.imageFrontSmallUrl != null) {
+            val imageProduct = productHeader.findViewById<ImageView>(R.id.image_product)
+            Picasso.with(activity)
+                .load(product.imageFrontUrl)
+                .placeholder(R.drawable.progress_animation)
+                .into(imageProduct)
+        }
     }
 }
