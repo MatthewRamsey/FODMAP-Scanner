@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
 import com.lemick.fodmapscanner.R
+import com.lemick.fodmapscanner.model.fodmap.FodmapLevel
 import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
+import com.squareup.picasso.Picasso
 
 class IngredientListAdapter(
     private val context: Context,
@@ -32,15 +35,19 @@ class IngredientListAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         val rowView = inflater.inflate(R.layout.ingredient_list_view, parent, false)
-        val textViewIngredientName = rowView.findViewById(R.id.ingredient_name) as TextView
-        val textViewFodmapResult = rowView.findViewById(R.id.fodmap_result) as TextView
+        val ingredientTextName = rowView.findViewById(R.id.ingredient_text_name) as TextView
+        val ingredientImageFodmap = rowView.findViewById(R.id.ingredient_image_fodmap) as ImageView
 
         val resultItem = dataSource[position];
-        textViewIngredientName.text = resultItem.ingredient.text
+        ingredientTextName.text = resultItem.ingredient.text
         if (resultItem.fodmapEntry != null) {
-            textViewFodmapResult.text = resultItem.fodmapEntry.fodmap
+            if (resultItem.fodmapEntry.fodmap == FodmapLevel.LOW) {
+                Picasso.with(context).load(R.mipmap.ic_valid).into(ingredientImageFodmap)
+            } else {
+                Picasso.with(context).load(R.mipmap.ic_alert).into(ingredientImageFodmap)
+            }
         } else {
-            textViewFodmapResult.text = "Unknown"
+            Picasso.with(context).load(R.mipmap.ic_unknown).into(ingredientImageFodmap)
         }
         return rowView
     }

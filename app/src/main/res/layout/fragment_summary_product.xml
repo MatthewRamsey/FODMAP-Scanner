@@ -9,7 +9,7 @@
     tools:context=".view.SummaryProductFragment">
 
     <ListView
-        android:id="@+id/ingredients_fodmap_list"
+        android:id="@+id/product_list_ingredients"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"

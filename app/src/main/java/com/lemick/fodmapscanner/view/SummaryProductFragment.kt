@@ -52,11 +52,11 @@ class SummaryProductFragment : Fragment() {
     }
 
     private fun populateUI() {
-        val productHeader: View = layoutInflater.inflate(R.layout.indredient_list_header, binding.ingredientsFodmapList, false)
+        val productHeader: View = layoutInflater.inflate(R.layout.indredient_list_header, binding.productListIngredients, false)
         ingredientFodmapResults = ingredientParser.searchFodmapEntries(product.ingredients)
         val adapter = IngredientListAdapter(requireActivity(), ingredientFodmapResults)
-        binding.ingredientsFodmapList.adapter = adapter
-        binding.ingredientsFodmapList.addHeaderView(productHeader)
+        binding.productListIngredients.adapter = adapter
+        binding.productListIngredients.addHeaderView(productHeader)
 
         if (product.productName != null) {
             val textProductName = productHeader.findViewById<TextView>(R.id.text_product_name)
