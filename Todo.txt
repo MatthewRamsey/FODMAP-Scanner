@@ -4,6 +4,9 @@
 - Afficher la quantité de l'ingrédient si dispo ?
 - Refactor MVVM
 - Clean gradle file
+- Bouton d'action pour aller vers le scanner
+- Enlever menu bar dans le scanner
+- Séparer Ingredient & result Ingredient cleaned
 Ingredient "peanut butter", on recherche dans la DB,
 si 1 candidat contient ce terme, on le selectionne, si > 1, on selectionne avec la distance de levenshtein
 Si le terme n'est pas trouvé, on pourrait split la chaine en plusieurs mot ["peanut", "butter"] mais cela crée

@@ -26,25 +26,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var _binding: ActivityMainBinding
+    private val binding get() = _binding!!
+
     private var permissionCameraGranted = false;
 
     private val fodmapLocalRepository : FodmapLocalRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(_binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(_binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        _binding.appFabScanner.setOnClickListener {
+            navController.navigate(R.id.action_FirstFragment_to_CodeScannerFragment)
         }
 
         checkCameraPermissions()

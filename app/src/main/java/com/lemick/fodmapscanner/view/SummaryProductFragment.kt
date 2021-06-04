@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.lemick.fodmapscanner.R
+import com.lemick.fodmapscanner.business.FodmapIngredientMapper
 import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.databinding.FragmentSummaryProductBinding
 import com.lemick.fodmapscanner.model.api.model.Product
@@ -25,12 +26,9 @@ class SummaryProductFragment : Fragment() {
     private var _binding: FragmentSummaryProductBinding? = null
     private val binding get() = _binding!!
 
-    private val ingredientParser: IngredientParser by inject();
+    private val fodmapIngredientMapper: FodmapIngredientMapper by inject();
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSummaryProductBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -49,11 +47,12 @@ class SummaryProductFragment : Fragment() {
         }
         val args = SummaryProductFragmentArgs.fromBundle(bundle)
         product = args.product
+
     }
 
     private fun populateUI() {
         val productHeader: View = layoutInflater.inflate(R.layout.indredient_list_header, binding.productListIngredients, false)
-        ingredientFodmapResults = ingredientParser.searchFodmapEntries(product.ingredients)
+        ingredientFodmapResults = fodmapIngredientMapper.searchFodmapEntries(product.ingredients)
         val adapter = IngredientListAdapter(requireActivity(), ingredientFodmapResults)
         binding.productListIngredients.adapter = adapter
         binding.productListIngredients.addHeaderView(productHeader)
@@ -70,4 +69,6 @@ class SummaryProductFragment : Fragment() {
                 .into(imageProduct)
         }
     }
+
+
 }

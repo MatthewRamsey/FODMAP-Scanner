@@ -16,19 +16,14 @@ class FodmapLocalRepository(private val objectMapper : ObjectMapper, private var
         fodmapDb = objectMapper.readValue(fodmapListJson, typeRef)
     }
 
-    fun searchClosestEntry(text: String): FodmapEntry? {
-        val matches = fodmapDb.filter { fodmapEntry -> fodmapEntry.name.contains(text, true) }
+    fun searchClosestEntry(ingredientName: String): FodmapEntry? {
+        val matches = fodmapDb.filter { fodmapEntry -> fodmapEntry.name.contains(ingredientName, true) }
 
         if (matches.size == 1) {
             return matches.first()
 
         } else if (matches.size > 1) {
-            return matches.sortedWith(compareBy { entry ->
-                levenshteinDistance.apply(
-                    text,
-                    entry.name
-                )
-            }).first()
+            return matches.sortedWith(compareBy { entry -> levenshteinDistance.apply(ingredientName, entry.name) }).first()
         }
         return null
     }

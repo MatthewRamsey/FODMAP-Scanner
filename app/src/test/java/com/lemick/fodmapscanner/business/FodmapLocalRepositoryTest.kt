@@ -1,21 +1,33 @@
 package com.lemick.fodmapscanner.business
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class FodmapLocalRepositoryTest {
 
-    val model = FodmapLocalRepository(
-        arrayListOf(
-            FodmapEntry(name = "Palm sugar"),
-            FodmapEntry(name = "Peanut butter"),
-            FodmapEntry(name = "Butter")
+    @Mock
+    lateinit var objectMapper: ObjectMapper
+
+    lateinit var model : FodmapLocalRepository
+
+    @Before
+    fun init() {
+        model = FodmapLocalRepository(
+            objectMapper,
+            arrayListOf(
+                FodmapEntry(name = "Palm sugar"),
+                FodmapEntry(name = "Peanut butter"),
+                FodmapEntry(name = "Butter")
+            )
         )
-    )
+    }
 
     @Test
     fun _searchClosestEntry_case_insensitive() {

@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.databinding.FragmentFirstBinding
 
-class FirstFragment : Fragment() {
+class MainFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -28,10 +28,6 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_CodeScannerFragment)
-        }
     }
 
     override fun onDestroyView() {

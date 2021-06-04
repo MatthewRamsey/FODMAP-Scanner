@@ -2,6 +2,7 @@ package com.lemick.fodmapscanner.di
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.lemick.fodmapscanner.business.FodmapIngredientMapper
 import com.lemick.fodmapscanner.business.FodmapLocalRepository
 import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.model.api.IOpenFoodFactsClient
@@ -13,15 +14,14 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 
 val mainModule = module {
     single { FodmapLocalRepository(get()) }
-    single { IngredientParser(get()) }
+    single { IngredientParser() }
+    single { FodmapIngredientMapper(get(), get()) }
 
     single { provideObjectMapper() }
     single { provideOpenFoodFactsClient(get()) }
     single { provideRetrofit(get()) }
 
     viewModel { ProductViewModel(get()) }
-
-
 }
 
 fun provideObjectMapper(): ObjectMapper {
