@@ -1,10 +1,9 @@
 package com.lemick.fodmapscanner.business
 
 import com.lemick.fodmapscanner.model.api.model.Ingredient
-import com.lemick.fodmapscanner.model.fodmap.FodmapLevel
 import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
 
-class IngredientParser(private val fodmapDbManager: FodmapDbManager) {
+class IngredientParser(private val fodmapLocalRepository: FodmapLocalRepository) {
 
     // TODO remove, pas du parsing
     fun searchFodmapEntries(ingredients: List<Ingredient>): List<IngredientFodmapResult> {
@@ -23,7 +22,7 @@ class IngredientParser(private val fodmapDbManager: FodmapDbManager) {
     // TODO remove, pas du parsing
     fun searchFodmapEntry(ingredient: Ingredient): IngredientFodmapResult {
         val clearedId = clearIngredientId(ingredient.id)
-        val closestEntry = fodmapDbManager.searchClosestEntry(clearedId)
+        val closestEntry = fodmapLocalRepository.searchClosestEntry(clearedId)
         return IngredientFodmapResult(ingredient, closestEntry)
     }
 

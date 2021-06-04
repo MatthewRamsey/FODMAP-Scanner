@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.lemick.fodmapscanner.R
-import com.lemick.fodmapscanner.business.ProductSummaryManager
 import com.lemick.fodmapscanner.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {

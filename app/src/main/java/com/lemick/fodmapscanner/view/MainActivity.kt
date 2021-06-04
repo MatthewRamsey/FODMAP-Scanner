@@ -12,14 +12,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.fasterxml.jackson.core.type.TypeReference
 import com.google.android.material.snackbar.Snackbar
 import com.lemick.fodmapscanner.R
-import com.lemick.fodmapscanner.business.FodmapDbManager
-import com.lemick.fodmapscanner.business.IngredientParser
+import com.lemick.fodmapscanner.business.FodmapLocalRepository
 import com.lemick.fodmapscanner.databinding.ActivityMainBinding
-import com.lemick.fodmapscanner.model.api.ApiDependencyProvider
-import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
 import org.koin.android.ext.android.inject
 
 
@@ -33,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var permissionCameraGranted = false;
 
-    private val fodmapDbManager : FodmapDbManager by inject()
+    private val fodmapLocalRepository : FodmapLocalRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         checkCameraPermissions()
-        fodmapDbManager.loadFodmapDbFromStream(resources.openRawResource(R.raw.fodmap_list))
+        fodmapLocalRepository.loadFodmapDbFromStream(resources.openRawResource(R.raw.fodmap_list))
     }
 
     private fun checkCameraPermissions() {

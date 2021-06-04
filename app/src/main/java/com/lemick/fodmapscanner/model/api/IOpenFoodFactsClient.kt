@@ -8,5 +8,5 @@ import retrofit2.http.Path
 interface IOpenFoodFactsClient {
 
     @GET("product/{barcode}.json")
-    fun findProduct(@Path("barcode") barcodeId: String?): Call<ProductResult>
+    suspend fun findProduct(@Path("barcode") barcodeId: String?): ProductResult
 }

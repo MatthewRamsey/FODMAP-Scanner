@@ -7,9 +7,9 @@ import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class FodmapDbManagerTest {
+class FodmapLocalRepositoryTest {
 
-    val model = FodmapDbManager(
+    val model = FodmapLocalRepository(
         arrayListOf(
             FodmapEntry(name = "Palm sugar"),
             FodmapEntry(name = "Peanut butter"),
