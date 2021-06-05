@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lemick.fodmapscanner.model.api.Event
+import com.lemick.fodmapscanner.model.utils.Event
 import com.lemick.fodmapscanner.model.api.IOpenFoodFactsClient
 import com.lemick.fodmapscanner.model.api.model.Product
 import kotlinx.coroutines.launch

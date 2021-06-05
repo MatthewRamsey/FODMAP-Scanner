@@ -15,6 +15,7 @@ import com.lemick.fodmapscanner.databinding.FragmentSummaryProductBinding
 import com.lemick.fodmapscanner.model.api.model.Product
 import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
 import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import org.koin.android.ext.android.inject
 
 
@@ -63,8 +64,10 @@ class SummaryProductFragment : Fragment() {
         }
         if (product.imageFrontSmallUrl != null) {
             val imageProduct = productHeader.findViewById<ImageView>(R.id.image_product)
-            Picasso.with(activity)
+            Picasso.get()
                 .load(product.imageFrontUrl)
+                .fit().centerInside()
+                .transform(CropCircleTransformation())
                 .placeholder(R.drawable.progress_animation)
                 .into(imageProduct)
         }

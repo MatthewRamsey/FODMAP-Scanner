@@ -42,12 +42,12 @@ class IngredientListAdapter(
         ingredientTextName.text = resultItem.ingredient.text
         if (resultItem.fodmapEntry != null) {
             if (resultItem.fodmapEntry.fodmap == FodmapLevel.LOW) {
-                Picasso.with(context).load(R.mipmap.ic_valid).into(ingredientImageFodmap)
+                Picasso.get().load(R.mipmap.ic_valid).into(ingredientImageFodmap)
             } else {
-                Picasso.with(context).load(R.mipmap.ic_alert).into(ingredientImageFodmap)
+                Picasso.get().load(R.mipmap.ic_alert).into(ingredientImageFodmap)
             }
         } else {
-            Picasso.with(context).load(R.mipmap.ic_unknown).into(ingredientImageFodmap)
+            Picasso.get().load(R.mipmap.ic_unknown).into(ingredientImageFodmap)
         }
         return rowView
     }
