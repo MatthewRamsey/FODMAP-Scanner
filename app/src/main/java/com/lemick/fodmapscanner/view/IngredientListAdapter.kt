@@ -9,12 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.model.fodmap.FodmapLevel
-import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
+import com.lemick.fodmapscanner.model.fodmap.AnalyzedIngredient
 import com.squareup.picasso.Picasso
 
 class IngredientListAdapter(
     private val context: Context,
-    private val dataSource: List<IngredientFodmapResult>
+    private val dataSource: List<AnalyzedIngredient>
 ) : BaseAdapter() {
 
     private val inflater: LayoutInflater =

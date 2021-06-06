@@ -1,12 +1,12 @@
 package com.lemick.fodmapscanner.business
 
 import com.lemick.fodmapscanner.model.api.model.Ingredient
-import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
+import com.lemick.fodmapscanner.model.fodmap.AnalyzedIngredient
 
 class FodmapIngredientMapper(private val fodmapLocalRepository: FodmapLocalRepository,
                              private val ingredientParser: IngredientParser) {
 
-    fun searchFodmapEntries(ingredients: List<Ingredient>): List<IngredientFodmapResult> {
+    fun searchFodmapEntries(ingredients: List<Ingredient>): List<AnalyzedIngredient> {
         val prettifiedIngredients = ingredients.map { capitalizeIngredientText(it) }
         return prettifiedIngredients
             .map { searchFodmapEntry(it) }
@@ -20,10 +20,10 @@ class FodmapIngredientMapper(private val fodmapLocalRepository: FodmapLocalRepos
             }.reversed()
     }
 
-    private fun searchFodmapEntry(ingredient: Ingredient): IngredientFodmapResult {
+    private fun searchFodmapEntry(ingredient: Ingredient): AnalyzedIngredient {
         val clearedId = ingredientParser.clearIngredientId(ingredient.id)
         val closestEntry = fodmapLocalRepository.searchClosestEntry(clearedId)
-        return IngredientFodmapResult(ingredient, closestEntry)
+        return AnalyzedIngredient(ingredient, closestEntry)
     }
 
 

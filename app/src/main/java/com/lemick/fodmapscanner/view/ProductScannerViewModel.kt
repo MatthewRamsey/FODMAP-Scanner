@@ -10,7 +10,7 @@ import com.lemick.fodmapscanner.model.api.IOpenFoodFactsClient
 import com.lemick.fodmapscanner.model.api.model.Product
 import kotlinx.coroutines.launch
 
-class ProductViewModel(private val openFoodFactsClient: IOpenFoodFactsClient) : ViewModel() {
+class ProductScannerViewModel(private val openFoodFactsClient: IOpenFoodFactsClient) : ViewModel() {
 
     private val _productState = MutableLiveData<Event<Product?>>()
     val productState: LiveData<Event<Product?>>

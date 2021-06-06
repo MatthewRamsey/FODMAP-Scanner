@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.databinding.FragmentFirstBinding
+import org.koin.android.ext.android.inject
 
 
 class MainFragment : Fragment() {
@@ -21,6 +23,8 @@ class MainFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val mainViewModel: MainViewModel by inject();
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
@@ -29,6 +33,9 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.findViewById<FloatingActionButton>(R.id.app_fab_scanner)?.show()
+        mainViewModel.findAnalyzedProducts().observe(viewLifecycleOwner, Observer { analyzedProducts ->
+            analyzedProducts.forEach { println(it) }
+        })
     }
 
     override fun onDestroyView() {

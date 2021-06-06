@@ -1,12 +1,18 @@
 package com.lemick.fodmapscanner.di
 
+import android.content.Context
+import androidx.room.Room
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.lemick.fodmapscanner.business.FodmapIngredientMapper
 import com.lemick.fodmapscanner.business.FodmapLocalRepository
 import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.model.api.IOpenFoodFactsClient
-import com.lemick.fodmapscanner.view.ProductViewModel
+import com.lemick.fodmapscanner.model.entity.AppDatabase
+import com.lemick.fodmapscanner.view.MainViewModel
+import com.lemick.fodmapscanner.view.ProductAnalysisViewModel
+import com.lemick.fodmapscanner.view.ProductScannerViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -20,8 +26,11 @@ val mainModule = module {
     single { provideObjectMapper() }
     single { provideOpenFoodFactsClient(get()) }
     single { provideRetrofit(get()) }
+    single { provideDatabase(androidApplication()).ingredientScanDao() }
 
-    viewModel { ProductViewModel(get()) }
+    viewModel { MainViewModel(get()) }
+    viewModel { ProductScannerViewModel(get()) }
+    viewModel { ProductAnalysisViewModel(get(), get()) }
 }
 
 fun provideObjectMapper(): ObjectMapper {
@@ -37,4 +46,8 @@ fun provideRetrofit(objectMapper: ObjectMapper): Retrofit {
         .baseUrl("https://world.openfoodfacts.org/api/v0/")
         .addConverterFactory(JacksonConverterFactory.create(objectMapper))
         .build()
+}
+
+fun provideDatabase(context: Context): AppDatabase {
+    return Room.databaseBuilder(context, AppDatabase::class.java, "fodmap-scanner.db").build()
 }

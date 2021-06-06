@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.databinding.FragmentProductScannerBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,7 +24,7 @@ class ProductScannerFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var codeScanner: CodeScanner
 
-    private val productViewModel by viewModel<ProductViewModel>();
+    private val productViewModel by viewModel<ProductScannerViewModel>();
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentProductScannerBinding.inflate(inflater, container, false)

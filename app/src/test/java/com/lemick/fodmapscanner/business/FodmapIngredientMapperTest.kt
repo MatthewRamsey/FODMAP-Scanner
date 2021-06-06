@@ -3,14 +3,11 @@ package com.lemick.fodmapscanner.business
 import com.lemick.fodmapscanner.model.api.model.Ingredient
 import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
 import com.lemick.fodmapscanner.model.fodmap.FodmapLevel
-import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult
-import org.junit.Assert.*
+import com.lemick.fodmapscanner.model.fodmap.AnalyzedIngredient
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.AdditionalAnswers.returnsFirstArg
-import org.mockito.ArgumentMatchers.any
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
@@ -57,9 +54,9 @@ class FodmapIngredientMapperTest {
         val ingredients = mockData.map { it.first }
         val actual = model.searchFodmapEntries(ingredients)
         val expected = arrayListOf(
-            IngredientFodmapResult(mockData[1].first, mockData[1].second),
-            IngredientFodmapResult(mockData[2].first, mockData[2].second),
-            IngredientFodmapResult(mockData[3].first, mockData[3].second)
+            AnalyzedIngredient(mockData[1].first, mockData[1].second),
+            AnalyzedIngredient(mockData[2].first, mockData[2].second),
+            AnalyzedIngredient(mockData[3].first, mockData[3].second)
         )
     }
 }

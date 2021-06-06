@@ -9,8 +9,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Product (
 
-    @JsonProperty("id") var id : String?,
-    @JsonProperty("product_name") var productName : String?,
+    @JsonProperty("id") var id : String,
+    @JsonProperty("product_name") var productName : String,
     @JsonProperty("image_front_small_url") var imageFrontSmallUrl : String?,
     @JsonProperty("image_front_thumb_url") var imageFrontThumbUrl : String?,
     @JsonProperty("image_front_url") var imageFrontUrl : String?,
@@ -20,8 +20,8 @@ data class Product (
     @JsonProperty("image_nutrition_small_url") var imageNutritionSmallUrl : String?,
     @JsonProperty("image_nutrition_thumb_url") var imageNutritionThumbUrl : String?,
     @JsonProperty("image_nutrition_url") var imageNutritionUrl : String?,
-    @JsonProperty("image_small_url") var imageSmallUrl : String?,
-    @JsonProperty("image_thumb_url") var imageThumbUrl : String?,
+    @JsonProperty("image_small_url") var imageSmallUrl : String,
+    @JsonProperty("image_thumb_url") var imageThumbUrl : String,
     @JsonProperty("image_url") var imageUrl : String?,
     @JsonProperty("informers") var informers : List<String>?,
     @JsonProperty("informers_tags") var informersTags : List<String>?,

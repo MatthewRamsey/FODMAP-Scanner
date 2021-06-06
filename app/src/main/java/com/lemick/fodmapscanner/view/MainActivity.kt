@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -17,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.business.FodmapLocalRepository
 import com.lemick.fodmapscanner.databinding.ActivityMainBinding
+import com.lemick.fodmapscanner.model.entity.AnalyzedProductDao
 import org.koin.android.ext.android.inject
 
 
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private var permissionCameraGranted = false;
 
     private val fodmapLocalRepository: FodmapLocalRepository by inject()
+    private val analyzedProductDao: AnalyzedProductDao by inject()
 
     lateinit var fabScannerButton: FloatingActionButton
 
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         _binding.appFabScanner.setOnClickListener {
             navController.navigate(R.id.action_FirstFragment_to_CodeScannerFragment)
         }
+
     }
 
     private fun checkCameraPermissions() {

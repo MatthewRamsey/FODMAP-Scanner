@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/SummaryProductFragment"
-        android:name="com.lemick.fodmapscanner.view.SummaryProductFragment"
+        android:name="com.lemick.fodmapscanner.view.ProductAnalysisFragment"
         android:label="SummaryProductFragment">
         <argument
             android:name="product"
