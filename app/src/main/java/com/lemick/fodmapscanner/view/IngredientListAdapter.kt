@@ -34,9 +34,9 @@ class IngredientListAdapter(
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
-        val rowView = inflater.inflate(R.layout.ingredient_list_view, parent, false)
-        val ingredientTextName = rowView.findViewById(R.id.ingredient_text_name) as TextView
-        val ingredientImageFodmap = rowView.findViewById(R.id.ingredient_image_fodmap) as ImageView
+        val rowView = inflater.inflate(R.layout.analyzed_ingredient_list_view, parent, false)
+        val ingredientTextName = rowView.findViewById(R.id.product_text_name) as TextView
+        val ingredientImageFodmap = rowView.findViewById(R.id.product_image) as ImageView
 
         val resultItem = dataSource[position];
         ingredientTextName.text = resultItem.ingredient.text

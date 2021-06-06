@@ -11,13 +11,13 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lemick.fodmapscanner.R
-import com.lemick.fodmapscanner.databinding.FragmentFirstBinding
+import com.lemick.fodmapscanner.databinding.FragmentMainBinding
 import org.koin.android.ext.android.inject
 
 
 class MainFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentMainBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,15 +26,15 @@ class MainFragment : Fragment() {
     private val mainViewModel: MainViewModel by inject();
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.findViewById<FloatingActionButton>(R.id.app_fab_scanner)?.show()
-        mainViewModel.findAnalyzedProducts().observe(viewLifecycleOwner, Observer { analyzedProducts ->
-            analyzedProducts.forEach { println(it) }
+        mainViewModel.findAnalyzedProducts().observe(viewLifecycleOwner, { analyzedProducts ->
+            binding.mainList.adapter = AnalyzedProductListAdapter(requireContext(), analyzedProducts)
         })
     }
 

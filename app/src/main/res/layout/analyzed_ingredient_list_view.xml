@@ -11,7 +11,7 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/ingredient_image_fodmap"
+            android:id="@+id/product_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -19,7 +19,7 @@
             app:srcCompat="@drawable/progress_image" />
 
         <TextView
-            android:id="@+id/ingredient_text_name"
+            android:id="@+id/product_text_name"
             android:layout_width="344dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"

@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.lemick.fodmapscanner.R
-import com.lemick.fodmapscanner.databinding.FragmentSummaryProductBinding
+import com.lemick.fodmapscanner.databinding.FragmentProductAnalysisBinding
 import com.lemick.fodmapscanner.model.api.model.Product
-import com.lemick.fodmapscanner.model.fodmap.AnalyzedIngredient
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import org.koin.android.ext.android.inject
@@ -22,13 +20,13 @@ class ProductAnalysisFragment : Fragment() {
 
     private lateinit var product: Product
 
-    private var _binding: FragmentSummaryProductBinding? = null
+    private var _binding: FragmentProductAnalysisBinding? = null
     private val binding get() = _binding!!
 
     private val productAnalysisViewModel: ProductAnalysisViewModel by inject();
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentSummaryProductBinding.inflate(inflater, container, false)
+        _binding = FragmentProductAnalysisBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -50,7 +48,7 @@ class ProductAnalysisFragment : Fragment() {
     }
 
     private fun populateUI() {
-        val productHeader: View = layoutInflater.inflate(R.layout.indredient_list_header, binding.productListIngredients, false)
+        val productHeader: View = layoutInflater.inflate(R.layout.analyzed_ingredient_list_header, binding.productListIngredients, false)
 
         productAnalysisViewModel.analyzedIngredientsState.observe(viewLifecycleOwner, { analyzedIngredients ->
             val adapter = IngredientListAdapter(requireActivity(), analyzedIngredients)
