@@ -37,7 +37,6 @@ class ProductScannerFragment : Fragment() {
         val scannerView = binding.scannerView
         val activity = requireActivity()
 
-        activity.findViewById<FloatingActionButton>(R.id.app_fab_scanner).hide()
         checkCameraPermissions(view, activity)
         codeScanner = CodeScanner(activity, scannerView)
         codeScanner.decodeCallback = DecodeCallback { detectionResult ->
@@ -69,7 +68,6 @@ class ProductScannerFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        activity?.findViewById<FloatingActionButton>(R.id.app_fab_scanner)?.show()
         _binding = null
     }
 

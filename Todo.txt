@@ -1,6 +1,5 @@
 - Passer la DB Fodmap name sur des alias (soya, soja ?)
 - Ex Impl
-- Majuscules au début des ingrédients
 - Afficher la quantité de l'ingrédient si dispo ?
 - Refactor MVVM
 - Clean gradle file

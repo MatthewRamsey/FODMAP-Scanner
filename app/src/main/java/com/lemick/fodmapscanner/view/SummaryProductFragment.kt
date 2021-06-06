@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.business.FodmapIngredientMapper
-import com.lemick.fodmapscanner.business.IngredientParser
 import com.lemick.fodmapscanner.databinding.FragmentSummaryProductBinding
 import com.lemick.fodmapscanner.model.api.model.Product
 import com.lemick.fodmapscanner.model.fodmap.IngredientFodmapResult

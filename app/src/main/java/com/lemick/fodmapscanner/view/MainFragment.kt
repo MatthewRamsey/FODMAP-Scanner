@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.databinding.FragmentFirstBinding
 
@@ -26,10 +28,12 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.findViewById<FloatingActionButton>(R.id.app_fab_scanner)?.show()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        activity?.findViewById<FloatingActionButton>(R.id.app_fab_scanner)?.hide()
         _binding = null
     }
 
