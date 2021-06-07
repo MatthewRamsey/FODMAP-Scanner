@@ -10,9 +10,6 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class IngredientParserTest {
 
-    @Mock
-    lateinit var fodmapLocalRepository: FodmapLocalRepository;
-
     @InjectMocks
     lateinit var model: IngredientParser
 

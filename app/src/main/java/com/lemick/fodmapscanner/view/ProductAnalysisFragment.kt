@@ -12,7 +12,7 @@ import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.databinding.FragmentProductAnalysisBinding
 import com.lemick.fodmapscanner.model.api.model.Product
 import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import org.koin.android.ext.android.inject
 
 
@@ -55,7 +55,7 @@ class ProductAnalysisFragment : Fragment() {
             binding.productListIngredients.adapter = adapter
             binding.productListIngredients.addHeaderView(productHeader)
         })
-        productAnalysisViewModel.analyzeProduct(product)
+        productAnalysisViewModel.startProductAnalysis(product)
         val textProductName = productHeader.findViewById<TextView>(R.id.text_product_name)
         textProductName.text = product.productName
         if (product.imageFrontSmallUrl != null) {
@@ -63,7 +63,7 @@ class ProductAnalysisFragment : Fragment() {
             Picasso.get()
                 .load(product.imageFrontUrl)
                 .fit().centerInside()
-                .transform(CropCircleTransformation())
+                .transform(RoundedCornersTransformation(5,5))
                 .placeholder(R.drawable.progress_animation)
                 .into(imageProduct)
         }

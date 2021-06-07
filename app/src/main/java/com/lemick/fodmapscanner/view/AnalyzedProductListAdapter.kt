@@ -10,6 +10,8 @@ import android.widget.TextView
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.model.entity.AnalyzedProduct
 import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 
 class AnalyzedProductListAdapter(
     private val context: Context,
@@ -38,7 +40,10 @@ class AnalyzedProductListAdapter(
 
         val resultItem = dataSource[position];
         productTextName.text = resultItem.productName
-        Picasso.get().load(resultItem.thumbnailUrl).into(productImage)
+        Picasso.get()
+            .load(resultItem.thumbnailUrl)
+            .transform(RoundedCornersTransformation(5,5))
+            .into(productImage)
         return rowView
     }
 }
