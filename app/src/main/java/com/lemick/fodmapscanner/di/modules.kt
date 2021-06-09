@@ -29,8 +29,8 @@ val mainModule = module {
     single { provideDatabase(androidApplication()).ingredientScanDao() }
 
     viewModel { MainViewModel(get()) }
-    viewModel { ProductScannerViewModel(get()) }
-    viewModel { ProductAnalysisViewModel(null, get(), get()) }
+    viewModel { ProductScannerViewModel(get(), get()) }
+    viewModel { ProductAnalysisViewModel(null, get()) }
 }
 
 fun provideObjectMapper(): ObjectMapper {

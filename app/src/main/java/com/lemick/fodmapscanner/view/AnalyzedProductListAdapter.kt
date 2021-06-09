@@ -38,7 +38,7 @@ class AnalyzedProductListAdapter(
         val productTextName = rowView.findViewById(R.id.product_text_name) as TextView
         val productImage = rowView.findViewById(R.id.product_image) as ImageView
 
-        val resultItem = dataSource[position];
+        val resultItem = dataSource[position]
         productTextName.text = resultItem.productName
         Picasso.get()
             .load(resultItem.thumbnailUrl)

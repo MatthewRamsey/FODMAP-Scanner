@@ -49,6 +49,7 @@ class ProductScannerFragment : Fragment() {
                     Toast.makeText(activity, "Produit non detecté, veuillez ressayer", Toast.LENGTH_SHORT).show()
                     codeScanner.startPreview()
                 } else {
+                    productViewModel.persistAnalyzedProduct(product)
                     findNavController().navigate(
                         ProductScannerFragmentDirections.actionCodeScannerFragmentToSummaryProductFragment(product)
                     )

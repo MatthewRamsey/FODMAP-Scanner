@@ -8,9 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.lemick.fodmapscanner.model.utils.Event
 import com.lemick.fodmapscanner.model.api.IOpenFoodFactsClient
 import com.lemick.fodmapscanner.model.api.model.Product
+import com.lemick.fodmapscanner.model.entity.AnalyzedProduct
+import com.lemick.fodmapscanner.model.entity.AnalyzedProductDao
+import com.lemick.fodmapscanner.utils.getViewModelScope
 import kotlinx.coroutines.launch
 
-class ProductScannerViewModel(private val openFoodFactsClient: IOpenFoodFactsClient) : ViewModel() {
+class ProductScannerViewModel(private val openFoodFactsClient: IOpenFoodFactsClient,
+                              private val analyzedProductDao: AnalyzedProductDao,) : ViewModel() {
 
     private val _productState = MutableLiveData<Event<Product?>>()
     val productState: LiveData<Event<Product?>>
@@ -26,6 +30,13 @@ class ProductScannerViewModel(private val openFoodFactsClient: IOpenFoodFactsCli
                 Log.e("APP", "Error when retrieving the product infos", e)
                 _productState.value = Event(null)
             }
+        }
+    }
+
+    fun persistAnalyzedProduct(product: Product) {
+        viewModelScope.launch() {
+            val analyzedProduct = AnalyzedProduct(productBarcode = product.id, productName = product.productName, thumbnailUrl = product.imageThumbUrl)
+            analyzedProductDao.insert(analyzedProduct)
         }
     }
 }

@@ -20,6 +20,7 @@ import com.lemick.fodmapscanner.business.FodmapLocalRepository
 import com.lemick.fodmapscanner.databinding.ActivityMainBinding
 import com.lemick.fodmapscanner.model.entity.AnalyzedProductDao
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainActivity : AppCompatActivity() {

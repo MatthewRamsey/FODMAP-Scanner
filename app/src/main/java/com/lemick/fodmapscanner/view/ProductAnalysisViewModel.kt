@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 class ProductAnalysisViewModel(
     private val coroutineScopeProvider: CoroutineScope? = null,
-    private val analyzedProductDao: AnalyzedProductDao,
     private val fodmapIngredientAnalyzer: FodmapIngredientAnalyzer
 ) : ViewModel() {
 
@@ -27,10 +26,6 @@ class ProductAnalysisViewModel(
     fun startProductAnalysis(product: Product) {
         getViewModelScope(coroutineScopeProvider).launch() {
             _analyzedIngredientsState.value = doIngredientAnalysis(product.ingredients)
-
-            val analyzedProduct =
-                AnalyzedProduct(productBarcode = product.id, productName = product.productName, thumbnailUrl = product.imageThumbUrl)
-            analyzedProductDao.insert(analyzedProduct)
         }
     }
 

@@ -62,7 +62,7 @@ class ProductAnalysisViewModelTest {
     @Before
     fun before() {
         Dispatchers.setMain(testDispatcher)
-        model = ProductAnalysisViewModel(testScope, analyzedProductDao, fodmapIngredientAnalyzer)
+        model = ProductAnalysisViewModel(testScope, fodmapIngredientAnalyzer)
     }
 
     @Test
