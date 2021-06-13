@@ -66,7 +66,7 @@ class ProductAnalysisFragment : Fragment() {
         productAnalysisViewModel.analyzedIngredientsState.observe(viewLifecycleOwner, { analyzedIngredients ->
             val adapter = IngredientListAdapter(requireActivity(), analyzedIngredients)
             binding.productListIngredients.adapter = adapter
-            binding.productListIngredients.addHeaderView(productHeader)
+            binding.productListIngredients.addHeaderView(productHeader, null, false)
             binding.productListIngredients.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
                 val ingredient = analyzedIngredients[position - 1]
                 ingredient.fodmapEntry?.let {
@@ -94,7 +94,6 @@ class ProductAnalysisFragment : Fragment() {
     }
 
     fun loadFodmapLevel(level: Int, imageView: ImageView) {
-        Picasso.get().load(R.mipmap.ic_valid).into(imageView)
         when {
             level == 0 -> Picasso.get().load(R.mipmap.ic_valid).into(imageView)
             level == 1 -> Picasso.get().load(R.mipmap.ic_warning).into(imageView)

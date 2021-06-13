@@ -39,17 +39,25 @@ class MainFragment : Fragment() {
             binding.mainList.adapter = AnalyzedProductListAdapter(requireContext(), analyzedProducts)
         })
         binding.mainList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            showLoader()
             val analyzedProduct = binding.mainList.adapter.getItem(position) as AnalyzedProduct
             productViewModel.fetchProduct(analyzedProduct.productBarcode)
         }
         productViewModel.productState.observe(viewLifecycleOwner, { eventProduct ->
             if (!eventProduct.hasBeenHandled()) {
                 val product = eventProduct.contentIfNotHandled()
+
                 findNavController().navigate(
                     MainFragmentDirections.actionFirstFragmentToSummaryProductFragment(product!!)
                 )
             }
         })
+    }
+
+    private fun showLoader() {
+        binding.mainList.alpha = 0.5F
+        binding.mainList.isEnabled = false
+        binding.mainLoader.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {

@@ -5097,5 +5097,111 @@
       "polyols": 0,
       "lactose": 0
     }
+  },
+
+
+
+
+  {
+    "id": "437",
+    "name": "Wholemeal Barley flour",
+    "fodmap": "HIGH",
+    "category": "Breads, Cereals, Grains and Pasta",
+    "details": {
+      "oligos": 2,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "438",
+    "name": "Wholemeal Rye flour",
+    "fodmap": "HIGH",
+    "category": "Breads, Cereals, Grains and Pasta",
+    "details": {
+      "oligos": 2,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "439",
+    "name": "Emulsifier",
+    "fodmap": "LOW",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "440",
+    "name": "Colour",
+    "fodmap": "LOW",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "441",
+    "name": "Dextrose",
+    "fodmap": "LOW",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "442",
+    "name": "Preservative",
+    "fodmap": "LOW",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "443",
+    "name": "Antioxidant",
+    "fodmap": "LOW",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
+  },
+  {
+    "id": "444",
+    "name": "Milk powder",
+    "fodmap": "HIGH",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 2
+    }
+  },
+  {
+    "id": "445",
+    "name": "Colza Oil",
+    "fodmap": "LOW",
+    "details": {
+      "oligos": 0,
+      "fructose": 0,
+      "polyols": 0,
+      "lactose": 0
+    }
   }
+
 ]
