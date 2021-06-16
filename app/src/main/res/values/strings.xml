@@ -12,4 +12,6 @@
     <string name="low">Low</string>
     <string name="medium">Medium</string>
     <string name="high">High</string>
+    <string name="donation_laius">Hey, I\'m the developer who made this app in his spare time, if it was useful to you and you want me to improve it, do not hesitate to support me by offering me a coffee via the link below, Thank you :)</string>
+    <string name="buy_coffee">Offer a coffee</string>
 </resources>

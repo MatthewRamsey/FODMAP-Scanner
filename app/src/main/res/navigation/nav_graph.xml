@@ -41,4 +41,9 @@
             android:name="product"
             app:argType="com.lemick.fodmapscanner.model.api.model.Product" />
     </fragment>
+    <fragment
+        android:id="@+id/DonateFragment"
+        android:name="com.lemick.fodmapscanner.view.DonateFragment"
+        android:label="DonateFragment">
+    </fragment>
 </navigation>
