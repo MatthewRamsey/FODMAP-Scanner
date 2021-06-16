@@ -71,10 +71,10 @@ class ProductAnalysisFragment : Fragment() {
                 val ingredient = analyzedIngredients[position - 1]
                 ingredient.fodmapEntry?.let {
                     dialogBinding.dialogTextIngredient.text = ingredient.ingredient.text
-                    loadFodmapLevel(it.details.fructose, dialogBinding.dialogImgFructose)
-                    loadFodmapLevel(it.details.oligos, dialogBinding.dialogImgOligos)
-                    loadFodmapLevel(it.details.lactose, dialogBinding.dialogImgLactose)
-                    loadFodmapLevel(it.details.polyols, dialogBinding.dialogImgPolyols)
+                    loadFodmapLevel(it.details.fructose, dialogBinding.dialogImgFructose, dialogBinding.dialogTextLvlFructose)
+                    loadFodmapLevel(it.details.oligos, dialogBinding.dialogImgOligos, dialogBinding.dialogTextLvlOligos)
+                    loadFodmapLevel(it.details.lactose, dialogBinding.dialogImgLactose, dialogBinding.dialogTextLvlLactose)
+                    loadFodmapLevel(it.details.polyols, dialogBinding.dialogImgPolyols, dialogBinding.dialogTextLvlPolyols)
                     dialogBuilder.show()
                 }
             }
@@ -93,11 +93,20 @@ class ProductAnalysisFragment : Fragment() {
         }
     }
 
-    fun loadFodmapLevel(level: Int, imageView: ImageView) {
-        when {
-            level == 0 -> Picasso.get().load(R.mipmap.ic_valid).into(imageView)
-            level == 1 -> Picasso.get().load(R.mipmap.ic_warning).into(imageView)
-            level == 2 -> Picasso.get().load(R.mipmap.ic_alert).into(imageView)
+    fun loadFodmapLevel(level: Int, imageView: ImageView, txtLevel: TextView) {
+        when (level) {
+            0 -> {
+                Picasso.get().load(R.mipmap.ic_valid).into(imageView)
+                txtLevel.text = resources.getString(R.string.low)
+            }
+            1 -> {
+                Picasso.get().load(R.mipmap.ic_warning).into(imageView)
+                txtLevel.text = resources.getString(R.string.medium)
+            }
+            2 -> {
+                Picasso.get().load(R.mipmap.ic_alert).into(imageView)
+                txtLevel.text = resources.getString(R.string.high)
+            }
         }
     }
 

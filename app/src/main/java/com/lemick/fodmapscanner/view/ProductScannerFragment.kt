@@ -46,7 +46,7 @@ class ProductScannerFragment : Fragment() {
             if (!eventProduct.hasBeenHandled()) {
                 val product = eventProduct.contentIfNotHandled()
                 if (product == null) {
-                    Toast.makeText(activity, "Produit non detecté, veuillez ressayer", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, R.string.not_found_product_msg, Toast.LENGTH_SHORT).show()
                     codeScanner.startPreview()
                 } else {
                     productViewModel.persistAnalyzedProduct(product)

@@ -6,4 +6,10 @@
     <string name="second_fragment_label">Scanner</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="close">Close</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="not_found_product_msg">Product not found, please retry</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
 </resources>

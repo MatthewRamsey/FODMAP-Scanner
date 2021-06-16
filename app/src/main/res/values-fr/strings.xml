@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FODMAP Scanner</string>
+    <string name="close">Fermer</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="first_fragment_label">FODMAP Scanner</string>
+    <string name="second_fragment_label">Scanner</string>
+    <string name="next">Suivant</string>
+    <string name="previous">Précédent</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="not_found_product_msg">Le produit n\'a pas été trouvé, merci de réessayer</string>
+    <string name="low">Faible</string>
+    <string name="medium">Moyen</string>
+    <string name="high">Haut</string>
+</resources>

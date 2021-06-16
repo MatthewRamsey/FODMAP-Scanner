@@ -38,7 +38,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="Oligos" />
+                    android:text="Oligos"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/dialog_img_oligos"
@@ -46,6 +47,14 @@
                     android:layout_height="36dp"
                     android:layout_gravity="center"
                     app:srcCompat="@mipmap/ic_unknown" />
+
+                <TextView
+                    android:id="@+id/dialog_text_lvl_oligos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="TextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,7 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="Fructose" />
+                    android:text="Fructose"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/dialog_img_fructose"
@@ -68,6 +78,14 @@
                     android:layout_height="36dp"
                     android:layout_gravity="center"
                     app:srcCompat="@mipmap/ic_unknown" />
+
+                <TextView
+                    android:id="@+id/dialog_text_lvl_fructose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="TextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -82,7 +100,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="Polyols" />
+                    android:text="Polyols"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/dialog_img_polyols"
@@ -90,6 +109,14 @@
                     android:layout_height="36dp"
                     android:layout_gravity="center"
                     app:srcCompat="@mipmap/ic_unknown" />
+
+                <TextView
+                    android:id="@+id/dialog_text_lvl_polyols"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="TextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +131,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="Lactose" />
+                    android:text="Lactose"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/dialog_img_lactose"
@@ -112,6 +140,14 @@
                     android:layout_height="36dp"
                     android:layout_gravity="center"
                     app:srcCompat="@mipmap/ic_unknown" />
+
+                <TextView
+                    android:id="@+id/dialog_text_lvl_lactose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:text="TextView" />
             </LinearLayout>
         </LinearLayout>
 
@@ -121,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="Close"
+            android:text="@string/close"
             android:textColor="#FFF" />
     </LinearLayout>
 </LinearLayout>
