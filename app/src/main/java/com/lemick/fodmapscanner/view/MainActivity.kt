@@ -32,14 +32,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var _binding: ActivityMainBinding
-    private val binding get() = _binding!!
 
     private var permissionCameraGranted = false;
 
     private val fodmapLocalRepository: FodmapLocalRepository by inject()
-    private val analyzedProductDao: AnalyzedProductDao by inject()
-
-    lateinit var fabScannerButton: FloatingActionButton
     lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,15 +69,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
                 navController.navigate(R.id.DonateFragment)

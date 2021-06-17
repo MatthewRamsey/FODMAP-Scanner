@@ -61,7 +61,7 @@ class ProductScannerFragment : Fragment() {
 
     private fun checkCameraPermissions(view: View, activity: FragmentActivity) {
         if (checkSelfPermission(view.context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(activity, "Merci de donner les permissions d'accés à la caméra", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, R.string.give_permissions, Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_CodeScannerFragment_to_FirstFragment)
         }
     }

@@ -46,10 +46,12 @@ class MainFragment : Fragment() {
         productViewModel.productState.observe(viewLifecycleOwner, { eventProduct ->
             if (!eventProduct.hasBeenHandled()) {
                 val product = eventProduct.contentIfNotHandled()
-
-                findNavController().navigate(
-                    MainFragmentDirections.actionFirstFragmentToSummaryProductFragment(product!!)
-                )
+                if (product == null) {
+                    Toast.makeText(activity, R.string.not_found_product_msg, Toast.LENGTH_SHORT).show()
+                    hideLoader()
+                } else {
+                    findNavController().navigate(MainFragmentDirections.actionFirstFragmentToSummaryProductFragment(product))
+                }
             }
         })
     }
@@ -58,6 +60,12 @@ class MainFragment : Fragment() {
         binding.mainList.alpha = 0.5F
         binding.mainList.isEnabled = false
         binding.mainLoader.visibility = View.VISIBLE
+    }
+
+    private fun hideLoader() {
+        binding.mainList.alpha = 1F
+        binding.mainList.isEnabled = true
+        binding.mainLoader.visibility = View.GONE
     }
 
     override fun onDestroyView() {

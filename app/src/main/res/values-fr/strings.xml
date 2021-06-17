@@ -14,4 +14,6 @@
     <string name="high">Haut</string>
     <string name="donation_laius">Hey, je suis le développeur ayant fait cette app sur son temps libre, si elle vous a été utile et que vous souhaitez que je l\'améliore, n\'hésitez pas à me soutenir en m\'offrant un café via le lien ci-dessous, Merci :)</string>
     <string name="buy_coffee">Offrir un café</string>
+    <string name="give_permissions">Merci de donner les permissions d\'accés à la caméra</string>
+    <string name="fodmap_unknown">Fodmaps non connus pour cet ingrédient</string>
 </resources>

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.lemick.fodmapscanner.R
 import com.lemick.fodmapscanner.databinding.DialogFodmapDetailsBinding
@@ -69,13 +70,15 @@ class ProductAnalysisFragment : Fragment() {
             binding.productListIngredients.addHeaderView(productHeader, null, false)
             binding.productListIngredients.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
                 val ingredient = analyzedIngredients[position - 1]
-                ingredient.fodmapEntry?.let {
+                if(ingredient.fodmapEntry != null) {
                     dialogBinding.dialogTextIngredient.text = ingredient.ingredient.text
-                    loadFodmapLevel(it.details.fructose, dialogBinding.dialogImgFructose, dialogBinding.dialogTextLvlFructose)
-                    loadFodmapLevel(it.details.oligos, dialogBinding.dialogImgOligos, dialogBinding.dialogTextLvlOligos)
-                    loadFodmapLevel(it.details.lactose, dialogBinding.dialogImgLactose, dialogBinding.dialogTextLvlLactose)
-                    loadFodmapLevel(it.details.polyols, dialogBinding.dialogImgPolyols, dialogBinding.dialogTextLvlPolyols)
+                    loadFodmapLevel(ingredient.fodmapEntry.details.fructose, dialogBinding.dialogImgFructose, dialogBinding.dialogTextLvlFructose)
+                    loadFodmapLevel(ingredient.fodmapEntry.details.oligos, dialogBinding.dialogImgOligos, dialogBinding.dialogTextLvlOligos)
+                    loadFodmapLevel(ingredient.fodmapEntry.details.lactose, dialogBinding.dialogImgLactose, dialogBinding.dialogTextLvlLactose)
+                    loadFodmapLevel(ingredient.fodmapEntry.details.polyols, dialogBinding.dialogImgPolyols, dialogBinding.dialogTextLvlPolyols)
                     dialogBuilder.show()
+                } else {
+                    Toast.makeText(activity, R.string.fodmap_unknown, Toast.LENGTH_SHORT).show()
                 }
             }
         })
