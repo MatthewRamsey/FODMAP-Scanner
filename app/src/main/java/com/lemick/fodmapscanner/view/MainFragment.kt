@@ -17,6 +17,7 @@ import com.lemick.fodmapscanner.databinding.FragmentMainBinding
 import com.lemick.fodmapscanner.model.entity.AnalyzedProduct
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.function.Consumer
 
 
 class MainFragment : Fragment() {
@@ -54,6 +55,15 @@ class MainFragment : Fragment() {
                 }
             }
         })
+
+        //initFakeData()
+    }
+
+    private fun initFakeData() {
+        val listData = arrayListOf("3061990140722","3228857000852", "3017620422003", "3175680011480")
+        for (barcode in listData) {
+            productViewModel.fetchProduct(barcode)
+        }
     }
 
     private fun showLoader() {

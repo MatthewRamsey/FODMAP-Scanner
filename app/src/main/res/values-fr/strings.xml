@@ -16,4 +16,5 @@
     <string name="buy_coffee">Offrir un café</string>
     <string name="give_permissions">Merci de donner les permissions d\'accés à la caméra</string>
     <string name="fodmap_unknown">Fodmaps non connus pour cet ingrédient</string>
+    <string name="donation">Soutenir l\'application</string>
 </resources>

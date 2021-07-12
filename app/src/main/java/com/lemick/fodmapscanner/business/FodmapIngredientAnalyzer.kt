@@ -19,8 +19,8 @@ class FodmapIngredientAnalyzer(private val fodmapLocalRepository: FodmapLocalRep
 
 
     private fun capitalizeIngredientText(ingredient: Ingredient): Ingredient {
-        val ingredientCopy = ingredient.copy();
-        val currentText = ingredientCopy.text;
+        val ingredientCopy = ingredient.copy()
+        val currentText = ingredientCopy.text?.replace("[_]".toRegex(), "")
         if (!currentText.isNullOrEmpty()) {
             ingredientCopy.text = currentText[0].uppercase() + currentText.substring(1);
         }

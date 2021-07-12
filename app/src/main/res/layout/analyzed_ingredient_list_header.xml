@@ -35,7 +35,7 @@
                 android:text="Le nom du produit sera situé ici"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="28sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
