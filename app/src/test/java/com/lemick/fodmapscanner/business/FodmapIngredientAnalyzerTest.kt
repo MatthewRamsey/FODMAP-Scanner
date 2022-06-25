@@ -1,11 +1,11 @@
-package com.lemick.fodmapscanner.business
+package com.mr.fodmapscanner.business
 
-import com.lemick.fodmapscanner.MockitoKotlinHelper
-import com.lemick.fodmapscanner.MockitoKotlinHelper.Companion.any
-import com.lemick.fodmapscanner.model.api.model.Ingredient
-import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
-import com.lemick.fodmapscanner.model.fodmap.FodmapLevel
-import com.lemick.fodmapscanner.model.fodmap.AnalyzedIngredient
+import com.mr.fodmapscanner.MockitoKotlinHelper
+import com.mr.fodmapscanner.MockitoKotlinHelper.Companion.any
+import com.mr.fodmapscanner.model.api.model.Ingredient
+import com.mr.fodmapscanner.model.fodmap.FodmapEntry
+import com.mr.fodmapscanner.model.fodmap.FodmapLevel
+import com.mr.fodmapscanner.model.fodmap.AnalyzedIngredient
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

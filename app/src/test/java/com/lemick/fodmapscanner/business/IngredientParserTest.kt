@@ -1,4 +1,4 @@
-package com.lemick.fodmapscanner.business
+package com.mr.fodmapscanner.business
 
 import org.junit.Assert.*
 import org.junit.Test

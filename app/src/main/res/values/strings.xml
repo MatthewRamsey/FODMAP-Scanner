@@ -16,5 +16,4 @@
     <string name="buy_coffee">Offer a coffee</string>
     <string name="give_permissions">The app needs camera permissions to work</string>
     <string name="fodmap_unknown">Fodmaps unknown for this ingredient</string>
-    <string name="donation">Donate</string>
 </resources>

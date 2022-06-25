@@ -1,15 +1,15 @@
-package com.lemick.fodmapscanner.view
+package com.mr.fodmapscanner.view
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.lemick.fodmapscanner.MockitoKotlinHelper
-import com.lemick.fodmapscanner.business.FodmapIngredientAnalyzer
-import com.lemick.fodmapscanner.model.api.model.Ingredient
-import com.lemick.fodmapscanner.model.api.model.Product
-import com.lemick.fodmapscanner.model.entity.AnalyzedProductDao
-import com.lemick.fodmapscanner.model.fodmap.AnalyzedIngredient
-import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
-import com.lemick.fodmapscanner.model.fodmap.FodmapLevel
+import com.mr.fodmapscanner.MockitoKotlinHelper
+import com.mr.fodmapscanner.business.FodmapIngredientAnalyzer
+import com.mr.fodmapscanner.model.api.model.Ingredient
+import com.mr.fodmapscanner.model.api.model.Product
+import com.mr.fodmapscanner.model.entity.AnalyzedProductDao
+import com.mr.fodmapscanner.model.fodmap.AnalyzedIngredient
+import com.mr.fodmapscanner.model.fodmap.FodmapEntry
+import com.mr.fodmapscanner.model.fodmap.FodmapLevel
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestCoroutineDispatcher

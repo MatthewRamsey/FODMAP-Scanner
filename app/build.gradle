@@ -1,20 +1,23 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'androidx.navigation.safeargs'
     id "kotlin-parcelize"
     id 'kotlin-kapt'
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
+    dataBinding {
+        enabled = true
+    }
 
     defaultConfig {
-        applicationId "com.example.fodmapscanner"
+        applicationId "com.mr.fodmapscanner"
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
+        targetSdkVersion 33
+        versionCode 3
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -22,7 +25,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

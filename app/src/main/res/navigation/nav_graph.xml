@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.lemick.fodmapscanner.view.MainFragment"
+        android:name="com.mr.fodmapscanner.view.MainFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_main">
 
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/CodeScannerFragment"
-        android:name="com.lemick.fodmapscanner.view.ProductScannerFragment"
+        android:name="com.mr.fodmapscanner.view.ProductScannerFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_product_scanner">
 
@@ -35,15 +35,10 @@
     </fragment>
     <fragment
         android:id="@+id/SummaryProductFragment"
-        android:name="com.lemick.fodmapscanner.view.ProductAnalysisFragment"
+        android:name="com.mr.fodmapscanner.view.ProductAnalysisFragment"
         android:label="SummaryProductFragment">
         <argument
             android:name="product"
-            app:argType="com.lemick.fodmapscanner.model.api.model.Product" />
-    </fragment>
-    <fragment
-        android:id="@+id/DonateFragment"
-        android:name="com.lemick.fodmapscanner.view.DonateFragment"
-        android:label="DonateFragment">
+            app:argType="com.mr.fodmapscanner.model.api.model.Product" />
     </fragment>
 </navigation>

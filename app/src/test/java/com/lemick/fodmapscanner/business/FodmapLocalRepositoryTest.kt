@@ -1,7 +1,7 @@
-package com.lemick.fodmapscanner.business
+package com.mr.fodmapscanner.business
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.lemick.fodmapscanner.model.fodmap.FodmapEntry
+import com.mr.fodmapscanner.model.fodmap.FodmapEntry
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

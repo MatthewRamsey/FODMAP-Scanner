@@ -1,4 +1,4 @@
-package com.lemick.fodmapscanner
+package com.mr.fodmapscanner
 
 import org.mockito.Mockito
 
